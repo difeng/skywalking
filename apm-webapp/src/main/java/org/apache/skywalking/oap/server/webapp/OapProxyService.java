@@ -69,6 +69,14 @@ public final class OapProxyService extends AbstractHttpService {
         return WebClient
             .builder(SessionProtocol.HTTP, oapGroup)
             .decorator(LoggingClient.newDecorator())
+            .decorator((delegate, ctx, req) -> {
+                    RequestHeaders newHeaders = req.headers().toBuilder()
+                    .removeAndThen(HttpHeaderNames.HOST)
+                    .add(HttpHeaderNames.HOST, ctx.endpoint().host())
+                    .build();
+                    HttpRequest newReq = req.withHeaders(newHeaders);
+                    return delegate.execute(ctx, newReq);
+             })
             .build();
     }
 
