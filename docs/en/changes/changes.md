@@ -9,6 +9,7 @@
 * Bump up skywalking-infra-e2e to work around GHA removing `docker-compose` v1.
 * Bump up CodeQL GitHub Actions.
 * Fix wrong phase of delombok plugin to reduce build warnings.
+* Use ci-friendly revision to set the project version.
 
 #### OAP Server
 
@@ -65,9 +66,14 @@
 * Fix the previous analysis result missing in the ALS `k8s-mesh` analyzer.
 * Fix `findEndpoint` query require `keyword` when using BanyanDB.
 * Support to analysis the ztunnel mapped IP address in eBPF Access Log Receiver.
-* Adapt BanyanDB Java Client 0.7.0-rc3.
+* Adapt BanyanDB Java Client 0.7.0.
 * Add SkyWalking Java Agent self observability dashboard.
 * Add Component ID(5022) for the GoFrame framework.
+* Bump up protobuf java dependencies to 3.25.5.
+* BanyanDB: support using native term searching for `keyword` in query `findEndpoint` and `getAlarm`.
+* BanyanDB: support TLS connection and configuration.
+* PromQL service: query API support RFC3399 time format.
+* Improve the performance of OTEL metrics handler.
 
 #### UI
 
